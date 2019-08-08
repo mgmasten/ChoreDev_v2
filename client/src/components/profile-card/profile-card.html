@@ -1,0 +1,24 @@
+<ion-card class="accordion-list card fadein-down">
+    <ion-card-header no-lines no-padding>
+      <button ion-item detail-none text-right
+              [style.background]="headerColor"
+              (click)="toggleAccordion()"
+              class="accordion-header"
+              [class.active]="expanded">
+          <h2 text-left >{{ title }}</h2>
+          <ion-icon
+            item-right
+            name="ios-arrow-forward">
+          </ion-icon>
+         
+      </button>
+      <section #accordionContent
+               [style.background]="contentColor"
+               [class.active]="expanded"
+               class="accordion-content">
+               <hr class="secondary-color">   
+        <ng-content></ng-content>
+      </section>
+    </ion-card-header>
+  </ion-card>
+  

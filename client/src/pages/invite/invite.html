@@ -1,0 +1,9 @@
+<burger-nav title="Invite"></burger-nav>
+
+<ion-content padding *ngIf="this.userService.loggedIn()">
+      <ion-item class="slide-up bottom-margin">
+        <ion-label color="primary">Invite Email</ion-label>
+        <ion-input placeholder="Enter here" id="email" [(ngModel)]="this.email"></ion-input>
+      </ion-item>
+    <button class="pop-in" margin-left ion-button (click)="this.clickInvite()">Invite</button>
+  </ion-content>

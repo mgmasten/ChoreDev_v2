@@ -1,0 +1,46 @@
+profile-card {
+    #card{
+        border-radius:8px;
+    }    
+
+    .nomargin {
+        margin: 0 !important;
+    }
+
+    .accordion-header {
+        color:black;
+
+        .item-inner {
+            height: 0px;
+            float:right;
+            margin-left: 0 !important;
+        }
+
+        ion-icon {
+            color:red;
+            transition: 0.25s linear;
+            transform: rotate(0);
+            
+        }
+    }
+
+    .active ion-icon {
+        transform: rotate(90deg);
+    }
+
+    .accordion-content {
+        transition: 0.25s linear; 
+        height:200px;
+        &.active {
+            padding: .75rem;
+        }
+    }
+
+    .label {
+        margin: 0px;
+    }
+}
+#header-text {
+    color:black;
+}
+

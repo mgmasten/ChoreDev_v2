@@ -1,0 +1,21 @@
+{
+    "commands": {
+        "create_database": "CREATE DATABASE IF NOT EXISTS %(name)s;",
+        "create_table":"CREATE TABLE IF NOT EXISTS %(name)s(%(column_list)s);",
+        "drop_table": "DROP TABLE %(name)s;",
+        "select": "SELECT %(column_list)s FROM %(table)s %(conditions)s;",
+        "insert": "INSERT INTO %(table)s (%(column_list)s) VALUES (%(values)s);",
+        "insert_return": "INSERT INTO %(table)s (%(column_list)s) VALUES (%(values)s) RETURNING %(key)s;",
+        "update": "UPDATE %(table)s SET (%(column_list)s) = (%(values)s) %(conditions)s;",
+        "update_one": "UPDATE %(table)s SET %(column_list)s = %(values)s %(conditions)s;",
+        "delete": "DELETE FROM %(table)s %(conditions)s;",
+        "count": "SELECT COUNT(*) FROM %(table)s %(conditions)s;"
+    },
+    "schemas": {
+        "houses": "id serial PRIMARY KEY, name varchar(255) unique not null, description varchar(255)",
+        "users": "id serial PRIMARY KEY, house_id int REFERENCES houses (id), username varchar(50) unique, email varchar(255) unique, nickname varchar(50), invite_token varchar(255), password varchar(50)",
+        "chores": "id serial PRIMARY KEY, house_id int REFERENCES houses (id), creator_id int references users (id), eligible_assignees varchar(255), difficulty varchar(50), occurs_on varchar(255), description varchar(255), name varchar(50), default_pts int",
+        "chore_instances": "id serial PRIMARY KEY, chore_id int REFERENCES chores (id), assigned_user int REFERENCES users (id), completed_by varchar(255), awarded_pts int, deadline timestamp, is_completed boolean not null, default_pts int, description varchar(255)",
+        "discussions": "id serial PRIMARY KEY, parent_id int REFERENCES discussions (id), user_id int REFERENCES users (id), title varchar(50), resolved boolean not null, urgent boolean not null, post_text text not null, timestamp timestamp not null",
+        "notifications": "id serial PRIMARY KEY, user_id int REFERENCES users (id), chore_id int , post_id int REFERENCES discussions (id), timestamp timestamp not null"    }
+}

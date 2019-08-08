@@ -1,0 +1,62 @@
+<!--
+  Generated template for the CreateAccountPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<burger-nav title="Create Account"></burger-nav>
+
+
+<ion-content padding *ngIf="this.state===0">
+    <!--ion-item class="slide-up" padding>
+        <ion-input type="text" placeholder="Email"></ion-input>
+      </ion-item-->
+      <ion-item class="slide-up" padding>
+        <ion-input type="text" placeholder="Username" [(ngModel)]="this.username"></ion-input>
+      </ion-item> 
+      <!--ion-item class="slide-up" padding>
+          <ion-input type="text" placeholder="Nickname*"></ion-input>
+      </ion-item> 
+      <p padding-left class="secondary-color">*this will be your displayed name.</p-->
+      <br>
+      <ion-item class="slide-up" padding>
+          <ion-input type="password" placeholder="Password" [(ngModel)]="this.password"></ion-input>
+      </ion-item > 
+      <ion-item class="slide-up bottom-margin" padding>
+          <ion-input type="password" placeholder="Confirm Password" [(ngModel)]="this.confirmation"></ion-input>
+      </ion-item > 
+      <button class="pop-in" margin-left ion-button (click)="this.clickSubmit(1)">Create Account <br> <ion-icon
+        item-left
+        name="ios-arrow-forward">
+      </ion-icon></button>
+</ion-content>
+
+<ion-content padding *ngIf="this.state===1">
+    <ion-item class="slide-up bottom-margin" padding>
+        <ion-label color="primary">Invite Token</ion-label>
+        <ion-input type="text" placeholder="Optional" [(ngModel)]="this.inviteToken"></ion-input>
+    </ion-item>
+    <button class="pop-in" margin-left ion-button (click)="this.clickSubmit(1)">Submit</button>
+    <button class="pop-in" margin-left ion-button (click)="this.clickSubmit(2)">I don't have one</button>
+</ion-content>
+
+<ion-content padding *ngIf="this.state===3">
+    <ion-item class="slide-up">
+        <ion-label color="primary">House Name</ion-label>
+        <ion-input placeholder="Required" [(ngModel)]="this.houseName"></ion-input>
+    </ion-item>
+    <ion-item class="slide-up bottom-margin">
+        <ion-label color="primary">House Description</ion-label>
+        <ion-input placeholder="Optional" [(ngModel)]="this.houseDescription"></ion-input>
+    </ion-item>
+    <button margin-left ion-button class="pop-in" (click)="this.clickSubmit(2)">Submit</button>
+    <button margin-left ion-button class="pop-in" (click)="this.clickSubmit(-2)">Go back</button>
+</ion-content>
+
+<ion-content *ngIf="this.state===5 || this.state===2" padding>
+    Loading
+</ion-content>
+
+<ion-content *ngIf="this.state===9 || this.state===6" padding>
+    Something went wrong!
+</ion-content>

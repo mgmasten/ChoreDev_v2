@@ -1,0 +1,66 @@
+<!--
+  Generated template for the SettingsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<burger-nav title="Settings"></burger-nav>
+
+
+<ion-content padding>
+    <profile-card *ngFor="let profile of profiles; let index = index"
+                  [title]="profile.name"
+                  textColor="#FFF"
+                  hasMargin="false"
+                  headerColor="#FFF">
+            <!-- CONTENT -->
+            <h2 padding-left><span class="primary">Username: </span>{{ profile.username }}</h2>
+            <h2 padding-left><span class="primary">Email: </span>{{ profile.email }}</h2>
+            <ion-item>
+                <ion-label color="primary">Nickname</ion-label>
+                <ion-input placeholder = "ex. Bobby" ></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Password</ion-label>
+                <ion-input type="password" placeholder="new_password"></ion-input>
+            </ion-item>
+              <button margin-left ion-button>Update
+              </button>
+    </profile-card>
+
+<house-card *ngFor="let house of this.houses; let index = index"
+                  [title]="house.name"
+                  [houseName]="house.houseName"
+                  [description]="house.description"
+                  [houseMates]="house.houseMates"
+                  [chores]="house.chores"
+                  textColor="#FFF"
+                  hasMargin="false"
+                  headerColor="#FFF">
+            <!-- CONTENT -->
+            <ion-item>
+                <ion-label color="primary">House Name</ion-label>
+                <ion-input placeholder = "{{ house.houseName }}"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Description</ion-label>
+                <ion-input placeholder="{{ house.description }}"></ion-input>
+            </ion-item>
+            <ion-item>
+                    <ion-label color="primary">Housemates</ion-label>
+                    <ion-label color="grey">{{ house.houseMates }}</ion-label>
+                </ion-item>
+                <ion-item>
+                        <ion-label color="primary">All Chores</ion-label>
+                        <ion-label color="grey">{{ house.chores }}</ion-label>
+                    </ion-item>
+            <button margin-left ion-button>Update</button>
+</house-card>
+
+
+    <button class="pop-in" ion-button margin-left >Log Out <br> <ion-icon
+      item-left
+      name="ios-arrow-forward">
+    </ion-icon></button>
+
+</ion-content>

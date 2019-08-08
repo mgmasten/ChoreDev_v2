@@ -1,0 +1,43 @@
+<burger-nav title="Home"></burger-nav>
+<ion-content class="background" padding padding-bottom *ngIf="this.userService.loggedIn()">
+  <score *ngIf="this.scores['scores']" [data]="this.scores['scores'][this.userService.getUsername()]"></score>
+  <graph [data]="this.scores"></graph>
+  
+  <h3>Personal  <ion-icon name="person"></ion-icon></h3>
+  <chore-card *ngFor="let item of items; let index = index"
+                  [nickName] ="item.nickName"
+                  [chore] = "item.chore"
+                  [dueDate]="item.dueDate"
+                  [isComplete]="item.isComplete"
+                  [assignees]="item.assignees"
+                  textColor="black"
+                  hasMargin="false"
+                  headerColor="#FFF"
+                  disabled="false">
+    <h2 text-wrap padding>About: {{item.description}}</h2>
+    <h4 text-wrap padding class="secondary-color" text-wrap>
+      Status: {{ item.isComplete }}
+      <br>
+      Possible Assignees: {{ item.assignees}}
+    </h4>
+  </chore-card>
+  <h3>House  <ion-icon name="home"></ion-icon></h3>
+  <chore-card *ngFor="let item2 of item2s; let index = index"
+                  [nickName] ="item2.nickName"
+                  [chore] = "item2.chore"
+                  [dueDate]="item2.dueDate"
+                  [isComplete]="item2.isComplete"
+                  [assignees]="item2.assignees"
+                  textColor="black"
+                  hasMargin="false"
+                  headerColor="#FFF"
+                  disabled="true">
+    <h2 text-wrap padding>About: {{item2.description}}</h2>
+    <h4 text-wrap padding class="secondary-color" text-wrap>
+      Status: {{ item2.isComplete }}
+      <br>
+      Possible Assignees: {{ item2.assignees}}
+    </h4>
+  </chore-card>
+</ion-content>
+

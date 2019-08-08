@@ -1,0 +1,58 @@
+<!--
+  Generated template for the CreateChorePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<burger-nav title="Create Chore"></burger-nav>
+
+
+<ion-content padding *ngIf="this.userService.loggedIn() && this.users">
+  <ion-item class="fadein-down">
+    <ion-label color="primary">Chore Name</ion-label>
+    <ion-input placeholder="ex: Dishes" [(ngModel)]="this.name"></ion-input>
+  </ion-item>
+
+  <ion-item class="fadein-down">
+    <ion-label color="primary" stacked>Description</ion-label>
+    <ion-input type="text" placeholder="ex: put dishes away every day" [(ngModel)]="this.description"></ion-input>
+  </ion-item>
+
+  <!--ion-item class="slide-up">
+    <ion-label color="primary" stacked>Stacked Label</ion-label>
+    <ion-input type="password" placeholder="Password Input"></ion-input>
+  </ion-item-->
+  <ion-item class="fadein-down">
+    <ion-label>Difficulty</ion-label>
+    <ion-select [(ngModel)]="this.difficulty">
+      <ion-option value="easy">Easy</ion-option>
+      <ion-option value="medium">Medium</ion-option>
+      <ion-option value="hard">Hard</ion-option>
+    </ion-select>
+  </ion-item>
+    
+  <ion-item class="fadein-down">
+    <ion-label>Schedule</ion-label>
+    <ion-select [(ngModel)]="this.occursOn" multiple="true" cancelText="cancel" okText="ok">
+      <ion-option value="0">Sunday</ion-option>
+      <ion-option value="1">Monday</ion-option>
+      <ion-option value="2">Tuesday</ion-option>
+      <ion-option value="3">Wednesday</ion-option>
+      <ion-option value="4">Thursday</ion-option>
+      <ion-option value="5">Friday</ion-option>
+      <ion-option value="6">Saturday</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item class="fadein-down bottom-margin">
+    <ion-label>Assigned to</ion-label>
+    <ion-select [(ngModel)]="assignments" multiple="true" cancelText="cancel" okText="ok">
+      <ion-option *ngFor="let user of this.users; let i = index" [value]="{id: user.id, username: user.username}" selected="false">{{user.username}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <button ion-button margin-left (click)="this.clickCreate()" class="pop-in">Create <br> <ion-icon
+    item-left
+    name="ios-arrow-forward">
+  </ion-icon></button> 
+</ion-content>

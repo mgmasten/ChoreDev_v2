@@ -1,0 +1,63 @@
+chore-card {
+    #card{
+        border-radius:8px;
+    }    
+
+    .nomargin {
+        margin: 0 !important;
+    }
+
+    .accordion-header {
+        color:black;
+
+        .item-inner {
+            height: 0px;
+            float:right;
+            margin-left: 0 !important;
+        }
+
+        ion-icon {
+            color:red;
+            transition: 0.1s ease-in;
+            transform: rotate(0);
+            
+        }
+    }
+
+    .active ion-icon {
+        transform: rotate(90deg);
+    }
+
+    .accordion-content {
+        transition: 0.1s ease-in; 
+        // height:200px;
+        &.active {
+            padding: .75rem;
+        }
+    }
+
+    .label {
+        margin: 0px;
+    }
+}
+#header-text {
+    color:black;
+}
+
+#due-date {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+#arrow {
+    margin-bottom: 0 !important;
+}
+
+#checkbox-container {
+    margin: 0;
+    padding-left: 0.3em;
+    padding-top: 0.3em;
+}
+#second-container {
+    padding-left: 0;
+}

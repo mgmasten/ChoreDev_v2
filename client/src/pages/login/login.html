@@ -1,0 +1,31 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<burger-nav title="Login"></burger-nav>
+
+<ion-content padding *ngIf="this.state===0">
+        <ion-item class="slide-up" padding>
+          <ion-input type="text" placeholder="Username" [(ngModel)]="this.username"></ion-input>
+        </ion-item>
+        <ion-item class="slide-up" padding>
+          <ion-input type="password" placeholder="Password" [(ngModel)]="this.password"></ion-input>
+        </ion-item >
+        <button class="pop-in" ion-button margin-left (click)="this.clickLogin()">Login <br> <ion-icon
+          item-left
+          name="ios-arrow-forward">
+        </ion-icon></button>
+        <h4 class="secondary-color">or</h4>
+        <button class="pop-in" ion-button margin-left (click)="this.navCtrl.setRoot('CreateAccountPage')">Register <br> <ion-icon
+          item-left
+          name="ios-arrow-forward">
+        </ion-icon></button>
+
+</ion-content>
+
+<ion-content padding *ngIf="this.state===1">
+  Loading
+</ion-content>

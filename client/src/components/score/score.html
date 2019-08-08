@@ -1,0 +1,10 @@
+<ion-grid id="score" class="fadein-down">
+    <ion-row>
+      <ion-col class="score-text-container">
+          <h1 class="fadein-down score-text">Score: <span class="score-color">{{ this.data }}</span></h1>
+      </ion-col>
+      <ion-col text-right class="score-text-container">
+        <h1 class="secondary-color score-text" item-right><ion-datetime displayFormat="DDD" [(ngModel)]="myDate"></ion-datetime></h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>

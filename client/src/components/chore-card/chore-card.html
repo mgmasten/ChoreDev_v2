@@ -1,0 +1,33 @@
+<ion-card class="accordion-list card fadein-down" >
+    <ion-card-header no-lines no-padding>
+      <button ion-item detail-none text-right
+              [style.background]="headerColor"
+              (click)="toggleAccordion()"
+              class="accordion-header"
+              [class.active]="expanded"
+              >
+          <h2 id="checkbox-container" item-left>
+            <ion-item id="second-container">
+                <ion-label>
+                  {{ nickName }}: {{ chore }}
+                </ion-label>
+              <ion-checkbox [disabled]="this.disabled" [(ngModel)]="this.complete"></ion-checkbox>
+            </ion-item>
+          </h2>
+          <h4 id="due-date" class="secondary-color" item-right padding-right padding-bottom> Due: {{ dueDate }}</h4>
+          <ion-icon
+            id="arrow"
+            item-right
+            name="ios-arrow-forward">
+          </ion-icon>
+      </button>
+      <section #accordionContent
+              id="accordion-content"
+               [style.background]="contentColor"
+               [class.active]="expanded"
+               class="accordion-content">
+               <hr class="secondary-color">   
+        <ng-content></ng-content>
+      </section>
+    </ion-card-header>
+  </ion-card>

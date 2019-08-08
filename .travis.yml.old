@@ -1,0 +1,22 @@
+dist: trusty
+addons:
+  chrome: stable
+matrix:
+  include:
+    - language: python
+      python:
+        - "3.6.5"
+      before_script:
+        - cd server
+        - pip install pipenv
+        - pipenv install
+      script:
+        - pipenv run python test.py
+    - language: node_js
+      node_js:
+        - "node"
+      before_script: 
+        - cd client
+        - npm install
+      script: 
+        - ng test
